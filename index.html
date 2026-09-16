@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Expert | 資安專家</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+            background: #07111f;
+            color: #e8f1ff;
+            line-height: 1.6;
+        }
+
+        /* 導覽列 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 8%;
+            background: rgba(7, 17, 31, 0.92);
+            border-bottom: 1px solid #18304d;
+            backdrop-filter: blur(10px);
+        }
+
+        nav .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        nav ul {
+            float: right;
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-left: 30px;
+        }
+
+        nav a {
+            color: #dbeafe;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+            background:
+                radial-gradient(circle at 50% 40%, #12365a 0%, #07111f 55%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .shield {
+            font-size: 75px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 80px);
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            color: #9fb4cc;
+            font-size: 20px;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 28px;
+            margin: 8px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #0ea5e9;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0284c7;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        .btn-outline:hover {
+            background: #38bdf8;
+            color: #07111f;
+        }
+
+        /* 通用區塊 */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #8fa5bd;
+        }
+
+        /* 卡片 */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .card {
+            padding: 30px;
+            background: #0c1b2d;
+            border: 1px solid #183653;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #38bdf8;
+            box-shadow: 0 10px 35px rgba(14, 165, 233, 0.15);
+        }
+
+        .card-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #38bdf8;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #a9bdd2;
+        }
+
+        /* 資安儀表板 */
+        .dashboard {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .status {
+            background: #0c1b2d;
+            border: 1px solid #183653;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .status-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        .status-label {
+            color: #91a8bf;
+        }
+
+        /* 宣導 */
+        .notice {
+            max-width: 1000px;
+            margin: auto;
+            background: #0c1b2d;
+            border-left: 5px solid #38bdf8;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .notice h3 {
+            margin-bottom: 15px;
+            color: #38bdf8;
+        }
+
+        .notice ul {
+            padding-left: 25px;
+            color: #b4c6d9;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #040b14;
+            color: #71869c;
+            border-top: 1px solid #18304d;
+        }
+
+        /* 手機版 */
+        @media (max-width: 800px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            section {
+                padding: 70px 6%;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- 導覽列 -->
+<nav>
+    <div class="logo">🛡 CYBER SECURITY</div>
+
+    <ul>
+        <li><a href="#home">首頁</a></li>
+        <li><a href="#services">資安服務</a></li>
+        <li><a href="#tools">資安工具</a></li>
+        <li><a href="#education">資安宣導</a></li>
+    </ul>
+</nav>
+
+
+<!-- 首頁 -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="shield">🛡️</div>
+
+        <h1>
+            CYBER <span>SECURITY</span>
+        </h1>
+
+        <p>
+            資安專家｜網路安全｜弱點分析｜資安教育
+        </p>
+
+        <a href="#services" class="btn btn-primary">
+            探索資安服務
+        </a>
+
+        <a href="#education" class="btn btn-outline">
+            資安防護指南
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- 資安服務 -->
+<section id="services">
+
+    <div class="section-title">
+        <h2>資安服務</h2>
+        <p>建立安全、可靠的資訊環境</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-icon">🔍</div>
+            <h3>弱點掃描</h3>
+            <p>
+                針對授權的網站、系統與應用程式進行安全檢測，
+                協助找出潛在的安全問題。
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🔐</div>
+            <h3>資安防護</h3>
+            <p>
+                從帳號、密碼、網路與資料保護等面向，
+                建立完整的資訊安全防護觀念。
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🎓</div>
+            <h3>資安教育</h3>
+            <p>
+                透過模擬案例與互動式教材，
+                提升使用者對網路攻擊與社交工程的認識。
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- 資安儀表板 -->
+<section id="tools">
+
+    <div class="section-title">
+        <h2>Security Dashboard</h2>
+        <p>資安環境概況</p>
+    </div>
+
+    <div class="dashboard">
+
+        <div class="status">
+            <div class="status-number">24</div>
+            <div class="status-label">安全檢測</div>
+        </div>
+
+        <div class="status">
+            <div class="status-number">08</div>
+            <div class="status-label">安全工具</div>
+        </div>
+
+        <div class="status">
+            <div class="status-number">15</div>
+            <div class="status-label">教育案例</div>
+        </div>
+
+        <div class="status">
+            <div class="status-number">100%</div>
+            <div class="status-label">安全意識</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- 資安宣導 -->
+<section id="education">
+
+    <div class="section-title">
+        <h2>資安防護指南</h2>
+        <p>從日常使用習慣開始保護資訊安全</p>
+    </div>
+
+    <div class="notice">
+
+        <h3>⚠ 資安三大基本原則</h3>
+
+        <ul>
+            <li>不要隨意點擊來源不明的連結或附件。</li>
+            <li>不同網站不要使用相同密碼，並啟用多因素驗證。</li>
+            <li>重要資料應定期備份，並確認備份可以正常還原。</li>
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- Footer -->
+<footer>
+
+    <p>🛡 CYBER SECURITY EXPERT</p>
+
+    <p>
+        Information Security · Cyber Awareness · Security Education
+    </p>
+
+    <br>
+
+    <p>© 2026 Cyber Security Expert. All Rights Reserved.</p>
+
+</footer>
+
+
+</body>
+</html>
